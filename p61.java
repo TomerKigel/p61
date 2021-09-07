@@ -56,24 +56,21 @@ public class p61 {
 
 
 	private static void permutate(int a[], int size, int n,Vector<Vector<Integer>> v_of_v) {
-		 // if size becomes 1 then prints the obtained
-        // permutation
+	 // if size becomes 1 then uses the obtained permutation
         if (size == 1)
         	check(a, n,v_of_v);
  
         for (int i = 0; i < size; i++) {
         	permutate(a, size - 1, n,v_of_v);
  
-            // if size is odd, swap 0th i.e (first) and
-            // (size-1)th i.e (last) element
+            // if size is odd, swap first and last
             if (size % 2 == 1) {
                 int temp = a[0];
                 a[0] = a[size - 1];
                 a[size - 1] = temp;
             }
  
-            // If size is even, swap ith
-            // and (size-1)th i.e last element
+            // If size is even, swap i with size-1 element
             else {
                 int temp = a[i];
                 a[i] = a[size - 1];
@@ -123,15 +120,6 @@ public class p61 {
 		}
 	}
 
-
-	static void swap(int arr[],int a,int b)
-	{
-		int temp = arr[b];
-		arr[b] = arr[a];
-		arr[a] = temp;
-	}
-
-
 	public static int triangle(int n)
 	{
 		return n*(n+1)/2;
@@ -157,59 +145,11 @@ public class p61 {
 		return n*(3*n-2);
 	}
 
-	public static int rotation(int num)
-	{
-		int t = num%10;
-		int t_num = num;
-		int c = 0;
-		while(t_num/10 > 0) {
-			c++;
-			t_num/=10;
-		}
-		num /= 10;
-		return t * (int)Math.pow(10, c) + num;
-	}
-
 	public static boolean is_rotation(int num,int s_num)
 	{
 		if((num%10 == (s_num/100)%10) && ((num/10)%10 == (s_num/1000)))
 			return true;
-		/*if((s_num%10 == (num/100)%10) && ((s_num/10)%10 == (num/1000)))
-			return true;*/
 		return false;
-	}
-	public static void count_digits(int digits[],int num)
-	{
-		int t_num = num;
-		while(t_num > 0)
-		{
-			digits[t_num %10]++;
-			t_num/=10;
-		}
 	}
 }
 
-
-
-
-/*	int one = rotation(num);
-int two = rotation(num);
-int three = rotation(num);
-int four = rotation(num);
-int five = rotation(num);
-if(S_numbers.contains(one) ||S_numbers.contains(two)||S_numbers.contains(three)||S_numbers.contains(four)||S_numbers.contains(five))
-	if(S_numbers.contains(one) ||S_numbers.contains(two)||S_numbers.contains(three)||S_numbers.contains(four)||S_numbers.contains(five))
-		if(P_numbers.contains(one) ||P_numbers.contains(two)||P_numbers.contains(three)||P_numbers.contains(four)||P_numbers.contains(five))
-			if(H_numbers.contains(one) ||H_numbers.contains(two)||H_numbers.contains(three)||H_numbers.contains(four)||H_numbers.contains(five))
-				if(He_numbers.contains(one) ||He_numbers.contains(two)||He_numbers.contains(three)||He_numbers.contains(four)||He_numbers.contains(five))
-					if(O_numbers.contains(one) ||O_numbers.contains(two)||O_numbers.contains(three)||O_numbers.contains(four)||O_numbers.contains(five))
-					{
-						System.out.println(num);
-						System.out.println(one);
-						System.out.println(two);
-						System.out.println(three);
-						System.out.println(four);
-						System.out.println(five);
-						System.out.println();
-					}
- */
